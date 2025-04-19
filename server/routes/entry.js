@@ -4,11 +4,17 @@ const Entry = require("../models/Entry");
 
 router.post("/", async (req, res) => {
     try {
-        const { date, sport, repas, complements, cannabis, poids } = req.body;
+        const { sport, repas, complements, cannabis, poids } = req.body;
 
-        let existing = await Entry.findOne({ date });
+        // Génère une date du jour sans l'heure (à minuit)
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        // Recherche une entrée pour aujourd'hui
+        let existing = await Entry.findOne({ date: today });
 
         if (existing) {
+            // Mise à jour
             existing.sport = sport;
             existing.repas = repas;
             existing.complements = complements;
@@ -18,8 +24,9 @@ router.post("/", async (req, res) => {
             return res.json({ message: "Entrée mise à jour", data: existing });
         }
 
+        // Nouvelle entrée
         const newEntry = new Entry({
-            date,
+            date: today,
             sport,
             repas,
             complements,
@@ -55,14 +62,13 @@ router.get("/stats", async (req, res) => {
             });
         }
 
-        // 1. Trouver la dernière date où il a fumé
         const reversed = [...entries].reverse();
         const lastSmoked = reversed.find((entry) => entry.cannabis === true);
 
         let baseTime = lastSmoked
             ? new Date(lastSmoked.date)
             : new Date(entries[0].date);
-        baseTime.setHours(0, 0, 0, 0); // pour démarrer à minuit
+        baseTime.setHours(0, 0, 0, 0);
         const now = new Date();
 
         const msDiff = now - baseTime;
@@ -75,13 +81,11 @@ router.get("/stats", async (req, res) => {
             days > 1 ? "s" : ""
         } ${hours}h ${minutes}m ${seconds % 60}s`;
 
-        // 2. Calcul économie & temps de vie
         const joursSansFumer = entries.filter(
             (e) => e.cannabis === false
         ).length;
-
-        const economie = (joursSansFumer * 2.66).toFixed(2); // €
-        const tempsVie = joursSansFumer * 45; // en minutes
+        const economie = (joursSansFumer * 2.66).toFixed(2);
+        const tempsVie = joursSansFumer * 45;
 
         res.json({
             tempsDepuisDernierJoint,
@@ -91,6 +95,24 @@ router.get("/stats", async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: "Erreur stats" });
+    }
+});
+
+router.get("/weights", async (req, res) => {
+    try {
+        const entries = await Entry.find({ poids: { $ne: null } }).sort({
+            date: 1,
+        });
+
+        const poidsData = entries.map((e) => ({
+            date: e.date.toISOString().split("T")[0],
+            poids: e.poids,
+        }));
+
+        res.json({ poids: poidsData });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Erreur poids" });
     }
 });
 

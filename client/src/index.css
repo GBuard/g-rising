@@ -5,3 +5,48 @@ body {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    .card-glass {
+        @apply rounded-xl p-6 text-center flex flex-col items-center justify-center shadow-lg backdrop-blur-md bg-white/5 border border-white/10;
+    }
+
+    .animate-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.bg-animated {
+    background: linear-gradient(-45deg, #1d1d1d, #2c2c2c, #1d1d1d, #1d1d1d);
+    background-size: 400% 400%;
+    animation: bgGradient 20s ease infinite;
+}
+
+@keyframes bgGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg-image {
+    background-image: url("/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
