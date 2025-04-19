@@ -43,13 +43,6 @@ body {
     }
 }
 
-.bg-image {
-    background-image: url("bg.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 
 @keyframes wordFadeIn {
     0% {
@@ -68,3 +61,4 @@ body {
     animation: wordFadeIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; /* Durée augmentée, et courbe de Bézier plus douce */
   }
   
+

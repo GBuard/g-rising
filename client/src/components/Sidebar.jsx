@@ -4,15 +4,29 @@ export default function Sidebar() {
     return (
         <aside className="bg-[#202020] text-white w-80 min-h-screen shadow-lg">
             <div
-                className="text-6xl mb-10 text-center py-14 rounded"
+                className="text-6xl mb-10 text-center py-14 rounded animate-gradient"
                 style={{
-                    background:
-                        "linear-gradient(180deg, #333333 0%, #262626 100%)",
+                    background: 
+                        "linear-gradient(90deg, #4F46E5, #EC4899, #4F46E5)",
+                    backgroundSize: "200% auto",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
                 }}
             >
                 G. Rising
             </div>
-            <nav className="flex flex-col gap-6 items-center">
+            <style jsx>{`
+                @keyframes gradient {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                }
+                .animate-gradient {
+                    animation: gradient 3s ease infinite;
+                }
+            `}</style>
+            <nav className="text-2xl mb-8 flex flex-col gap-6 items-center">
                 <NavLink
                     to="/"
                     className={({ isActive }) =>

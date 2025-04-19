@@ -51,7 +51,7 @@ export default function Calendrier() {
         <div className="min-h-screen bg-[#1D1D1D] text-white p-10 flex flex-col items-center">
             <h2 className="text-5xl mb-8">Calendrier</h2>
 
-            <div className="w-full max-w-9xl bg-[#262626] p-6 rounded-2xl shadow-md">
+            <div className="w-full max-w-9xl bg-[#262626] p-12 rounded-2xl shadow-md animate-fade-in">
                 <Calendar
                     onChange={setDate}
                     value={date}
@@ -62,13 +62,13 @@ export default function Calendrier() {
             </div>
 
             <div className="mt-10 flex flex-col items-start text-white text-sm">
-                <div className="flex items-center gap-2">
+                <div className="text-3xl flex items-center gap-2 mb-10">
                     <span>🏋️</span> <span>Sport fait</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="text-3xl flex items-center gap-2 mb-10">
                     <span>🍃</span> <span>Compléments pris</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="text-3xl flex items-center gap-2 mb-10">
                     <span>🚭</span> <span>Non fumé</span>
                 </div>
             </div>

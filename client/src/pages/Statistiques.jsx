@@ -36,15 +36,15 @@ export default function Statistiques() {
     const minutes = stats.tempsVie % 60;
 
     return (
-        <div className="min-h-screen bg-image text-white p-10 font-[Coolvetica]">
+        <div className="min-h-screen text-white p-10 font-[Coolvetica]">
             <h2 className="text-4xl mb-10 text-center">Voici tes stats</h2>
 
             {/* 🟩 CARDS */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-7xl mx-auto">
                 {/* Card 1 */}
                 <div className="card-glass animate-fade-in">
-                    <div className="text-3xl mb-2">🧯</div>
-                    <p className="text-sm text-gray-300 mb-1">Dernier joint</p>
+                    <div className="text-3xl mb-2">🚬</div>
+                    <p className="text-md text-gray-300 mb-1">Dernier joint</p>
                     <p className="text-xl font-semibold">
                         {stats.tempsDepuisDernierJoint}
                     </p>
@@ -56,7 +56,7 @@ export default function Statistiques() {
                     style={{ animationDelay: "100ms" }}
                 >
                     <div className="text-3xl mb-2">💰</div>
-                    <p className="text-sm text-gray-300 mb-1">
+                    <p className="text-md text-gray-300 mb-1">
                         Économie réalisée
                     </p>
                     <p className="text-xl font-semibold">{stats.economie} €</p>
@@ -68,7 +68,7 @@ export default function Statistiques() {
                     style={{ animationDelay: "200ms" }}
                 >
                     <div className="text-3xl mb-2">⏱️</div>
-                    <p className="text-sm text-gray-300 mb-1">
+                    <p className="text-md text-gray-300 mb-1">
                         Temps de vie gagné
                     </p>
                     <p className="text-xl font-semibold">
@@ -79,7 +79,7 @@ export default function Statistiques() {
 
             {/* 📉 GRAPHIQUE */}
             {weights.length > 0 && (
-                <div className="bg-[#262626] rounded-xl p-6 max-w-7xl mx-auto">
+                <div className="bg-[#262626] rounded-xl p-6 max-w-7xl mx-auto animate-fade-in card-glass hover:bg-white/10 hover:shadow-xl">
                     <h3 className="text-2xl mb-4 text-center">
                         📉 Évolution du poids
                     </h3>
