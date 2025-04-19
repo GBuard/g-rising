@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function SaisieDuJour() {
     const [sport, setSport] = useState(null);
@@ -6,6 +6,20 @@ export default function SaisieDuJour() {
     const [complements, setComplements] = useState(null);
     const [cannabis, setCannabis] = useState(null);
     const [poids, setPoids] = useState("");
+    const [visibleWords, setVisibleWords] = useState([]);
+
+    const sentence = "Salut boss, qu’est-ce que t’as fait aujourd’hui ?";
+    const words = sentence.split(" ");
+
+    useEffect(() => {
+        setVisibleWords([]);
+        const timers = words.map((_, i) =>
+            setTimeout(() => {
+                setVisibleWords((prev) => [...prev, i]);
+            }, i * 200)
+        );
+        return () => timers.forEach(clearTimeout);
+    }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +36,7 @@ export default function SaisieDuJour() {
         }
 
         const entry = {
-            date: new Date(), // Ajout de la date du jour
+            date: new Date(),
             sport,
             repas: parseInt(repas),
             complements: parseInt(complements),
@@ -41,7 +55,6 @@ export default function SaisieDuJour() {
 
             if (res.ok) {
                 alert("Données envoyées !");
-                // reset form
                 setSport(null);
                 setRepas(null);
                 setComplements(null);
@@ -58,22 +71,33 @@ export default function SaisieDuJour() {
 
     return (
         <div className="min-h-screen bg-[#1D1D1D] text-white px-10 py-8">
-            <h2 className="text-3xl md:text-4xl text-center mb-12">
-                Salut boss, qu’est-ce que t’as fait aujourd’hui ?
-            </h2>
+            <h2 className="text-3xl md:text-6xl text-center mb-40 mt-20">
+  {"Salut boss, qu’est-ce que t’as fait aujourd’hui ?"
+    .split(" ")
+    .map((word, index) => (
+      <span
+        key={index}
+        className="word-animate"
+        style={{ animationDelay: `${index * 100}ms` }}
+      >
+        {word}&nbsp;
+      </span>
+    ))}
+</h2>
+
 
             <form
                 onSubmit={handleSubmit}
-                className="space-y-8 max-w-4xl mx-auto"
+                className="space-y-8 max-w-6xl mx-auto"
             >
                 {/* LIGNE 1 */}
                 <div className="flex flex-col md:flex-row justify-between gap-8">
                     {/* Sport */}
                     <div className="flex flex-col space-y-2">
-                        <label className="">T’as fait ton sport ?</label>
+                        <label className="text-3xl">T’as fait ton sport ?</label>
                         <div className="flex gap-4">
                             <label>
-                                <input
+                                <input 
                                     type="radio"
                                     name="sport"
                                     value="true"
@@ -97,7 +121,7 @@ export default function SaisieDuJour() {
 
                     {/* Repas */}
                     <div className="flex flex-col space-y-2">
-                        <label className="">
+                        <label className="text-3xl">
                             T’as graille combien de repas ?
                         </label>
                         <div className="flex gap-4">
@@ -126,7 +150,7 @@ export default function SaisieDuJour() {
 
                     {/* Compléments */}
                     <div className="flex flex-col space-y-2">
-                        <label className="">Et les compléments ?</label>
+                        <label className="text-3xl">Et les compléments ?</label>
                         <div className="flex gap-4">
                             <label>
                                 <input
@@ -172,7 +196,7 @@ export default function SaisieDuJour() {
                 <div className="flex flex-col md:flex-row justify-between gap-8 items-end">
                     {/* Cannabis */}
                     <div className="flex flex-col space-y-2">
-                        <label className="">Est-ce que t’as fumé ?</label>
+                        <label className="text-3xl">Est-ce que t’as fumé ?</label>
                         <div className="flex gap-4">
                             <label>
                                 <input
@@ -199,7 +223,7 @@ export default function SaisieDuJour() {
 
                     {/* Poids */}
                     <div className="flex flex-col space-y-2">
-                        <label className="">Poids (kg)</label>
+                        <label className="text-3xl">Poids (kg)</label>
                         <input
                             type="number"
                             value={poids}

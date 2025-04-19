@@ -40,7 +40,7 @@ export default function Statistiques() {
             <h2 className="text-4xl mb-10 text-center">Voici tes stats</h2>
 
             {/* 🟩 CARDS */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-7xl mx-auto">
                 {/* Card 1 */}
                 <div className="card-glass animate-fade-in">
                     <div className="text-3xl mb-2">🧯</div>
@@ -79,7 +79,7 @@ export default function Statistiques() {
 
             {/* 📉 GRAPHIQUE */}
             {weights.length > 0 && (
-                <div className="bg-[#262626] rounded-xl p-6">
+                <div className="bg-[#262626] rounded-xl p-6 max-w-7xl mx-auto">
                     <h3 className="text-2xl mb-4 text-center">
                         📉 Évolution du poids
                     </h3>
@@ -87,7 +87,7 @@ export default function Statistiques() {
                         <LineChart data={weights}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="date" />
-                            <YAxis />
+                            <YAxis domain={[45, 65]} />
                             <Tooltip />
                             <Line
                                 type="monotone"

@@ -44,9 +44,27 @@ body {
 }
 
 .bg-image {
-    background-image: url("/bg.jpg");
+    background-image: url("bg.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+@keyframes wordFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .word-animate {
+    display: inline-block;
+    opacity: 0;
+    animation: wordFadeIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; /* Durée augmentée, et courbe de Bézier plus douce */
+  }
+  
