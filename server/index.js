@@ -2,6 +2,7 @@
 
 const express = require("express");
 const entryRoutes = require("./routes/entry");
+const todoRoutes = require("./routes/todo");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config(); // pour lire les variables .env
@@ -27,6 +28,7 @@ mongoose
     .then(() => {
         console.log("Connecté à MongoDB 🔗");
         app.use("/api/entry", entryRoutes);
+        app.use("/api/todo", todoRoutes);
         app.listen(PORT, () => {
             console.log(`Serveur lancé sur http://localhost:${PORT}`);
         });

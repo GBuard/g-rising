@@ -61,14 +61,14 @@ export default function Calendrier() {
                 />
             </div>
 
-            <div className="mt-10 flex flex-col items-start text-white text-sm">
-                <div className="text-3xl flex items-center gap-2 mb-10">
+            <div className="flex flex-wrap justify-center gap-10 mt-10 text-3xl">
+                <div className="flex items-center gap-2">
                     <span>🏋️</span> <span>Sport fait</span>
                 </div>
-                <div className="text-3xl flex items-center gap-2 mb-10">
+                <div className="flex items-center gap-2">
                     <span>🍃</span> <span>Compléments pris</span>
                 </div>
-                <div className="text-3xl flex items-center gap-2 mb-10">
+                <div className="flex items-center gap-2">
                     <span>🚭</span> <span>Non fumé</span>
                 </div>
             </div>
