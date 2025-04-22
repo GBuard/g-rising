@@ -44,9 +44,7 @@ export default function ToDoList() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-[#1D1D1D] to-black text-white p-10">
-            <h1 className="text-5xl font-bold text-center mb-10">
-                🧠 To-Do List
-            </h1>
+            <h1 className="text-5xl text-center mb-10">🧠 To-Do List</h1>
 
             <div className="max-w-2xl mx-auto bg-white/10 backdrop-blur-lg rounded-xl p-6 mb-8 shadow-lg">
                 <input
@@ -65,7 +63,7 @@ export default function ToDoList() {
                 />
                 <button
                     onClick={addTodo}
-                    className="bg-green-500 hover:bg-green-600 transition px-4 py-2 rounded font-bold"
+                    className="bg-green-500 hover:bg-green-600 transition px-4 py-2 rounded"
                 >
                     Ajouter
                 </button>

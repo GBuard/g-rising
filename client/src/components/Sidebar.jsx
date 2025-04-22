@@ -38,7 +38,7 @@ export default function Sidebar() {
                 <NavLink
                     to="/"
                     className={({ isActive }) =>
-                        isActive ? "underline font-semibold" : "hover:underline"
+                        isActive ? "underline" : "hover:underline"
                     }
                 >
                     Saisie du jour
@@ -46,7 +46,7 @@ export default function Sidebar() {
                 <NavLink
                     to="/calendrier"
                     className={({ isActive }) =>
-                        isActive ? "underline font-semibold" : "hover:underline"
+                        isActive ? "underline" : "hover:underline"
                     }
                 >
                     Calendrier
@@ -54,7 +54,7 @@ export default function Sidebar() {
                 <NavLink
                     to="/statistiques"
                     className={({ isActive }) =>
-                        isActive ? "underline font-semibold" : "hover:underline"
+                        isActive ? "underline" : "hover:underline"
                     }
                 >
                     Statistiques
@@ -62,7 +62,7 @@ export default function Sidebar() {
                 <NavLink
                     to="/todolist"
                     className={({ isActive }) =>
-                        isActive ? "underline font-semibold" : "hover:underline"
+                        isActive ? "underline" : "hover:underline"
                     }
                 >
                     To-Do List

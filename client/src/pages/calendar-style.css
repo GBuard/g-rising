@@ -73,7 +73,7 @@
 
 /* Date sélectionnée */
 .react-calendar__tile--active {
-    background-color: #4ade80 !important;
+    background-color: #b864fc !important;
     color: black !important;
     border-radius: 1rem;
 }

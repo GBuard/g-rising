@@ -40,9 +40,15 @@ export default function Calendrier() {
 
         return (
             <div className="flex justify-center items-center gap-1 text-xl pt-1 flex-wrap">
-                {entry.sport && <span title="Sport">🏋️</span>}
-                {entry.complements === 2 && <span title="Compléments">🍃</span>}
-                {!entry.cannabis && <span title="Pas fumé">🚭</span>}
+                {entry.sport && <span>🏋️</span>}
+
+                {entry.complements === 2 && <span>🍃</span>}
+                {entry.complements === 1 && <span>½🍃</span>}
+
+                {entry.repas === 2 && <span>🍳</span>}
+                {entry.repas === 1 && <span>½🍳</span>}
+
+                {!entry.cannabis && <span>🚭</span>}
             </div>
         );
     };
@@ -66,7 +72,12 @@ export default function Calendrier() {
                     <span>🏋️</span> <span>Sport fait</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <span>🍃</span> <span>Compléments pris</span>
+                    <span>🍃</span> <span>2 compléments</span>
+                    <span>½🍃</span> <span>1 complément</span>
+                </div>
+                <div className="flex items-center gap-2">
+                    <span>🍳</span> <span>2 repas</span>
+                    <span>½🍳</span> <span>1 repas</span>
                 </div>
                 <div className="flex items-center gap-2">
                     <span>🚭</span> <span>Non fumé</span>

@@ -44,10 +44,8 @@ export default function Statistiques() {
                 {/* Card 1 */}
                 <div className="card-glass animate-fade-in">
                     <div className="text-3xl mb-2">🚬</div>
-                    <p className="text-md text-gray-300 mb-1">Dernier joint</p>
-                    <p className="text-xl font-semibold">
-                        {stats.tempsDepuisDernierJoint}
-                    </p>
+                    <p className="text-md text-gray-300 mb-1">Dernier coin</p>
+                    <p className="text-xl">{stats.tempsDepuisDernierJoint}</p>
                 </div>
 
                 {/* Card 2 */}
@@ -59,7 +57,7 @@ export default function Statistiques() {
                     <p className="text-md text-gray-300 mb-1">
                         Économie réalisée
                     </p>
-                    <p className="text-xl font-semibold">{stats.economie} €</p>
+                    <p className="text-xl">{stats.economie} €</p>
                 </div>
 
                 {/* Card 3 */}
@@ -71,7 +69,7 @@ export default function Statistiques() {
                     <p className="text-md text-gray-300 mb-1">
                         Temps de vie gagné
                     </p>
-                    <p className="text-xl font-semibold">
+                    <p className="text-xl">
                         {heures}h {minutes}m
                     </p>
                 </div>
