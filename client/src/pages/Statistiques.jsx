@@ -32,7 +32,12 @@ export default function Statistiques() {
         fetchWeights();
     }, []);
 
-    if (!stats) return <div className="text-white p-10">Chargement...</div>;
+    if (!stats)
+        return (
+            <div className="text-white flex items-center justify-center min-h-screen pt-20 text-lg">
+                Chargement...
+            </div>
+        );
 
     const heures = Math.floor(stats.tempsVie / 60);
     const minutes = stats.tempsVie % 60;
