@@ -72,19 +72,18 @@ export default function SaisieDuJour() {
     return (
         <div className="min-h-screen bg-[#1D1D1D] text-white px-10 py-8">
             <h2 className="text-3xl md:text-6xl text-center mb-40 mt-20">
-  {"Salut boss, qu’est-ce que t’as fait aujourd’hui ?"
-    .split(" ")
-    .map((word, index) => (
-      <span
-        key={index}
-        className="word-animate"
-        style={{ animationDelay: `${index * 100}ms` }}
-      >
-        {word}&nbsp;
-      </span>
-    ))}
-</h2>
-
+                {"Salut boss, qu’est-ce que t’as fait aujourd’hui ?"
+                    .split(" ")
+                    .map((word, index) => (
+                        <span
+                            key={index}
+                            className="word-animate"
+                            style={{ animationDelay: `${index * 100}ms` }}
+                        >
+                            {word}&nbsp;
+                        </span>
+                    ))}
+            </h2>
 
             <form
                 onSubmit={handleSubmit}
@@ -94,10 +93,12 @@ export default function SaisieDuJour() {
                 <div className="flex flex-col md:flex-row justify-between gap-8">
                     {/* Sport */}
                     <div className="flex flex-col space-y-2">
-                        <label className="text-3xl">T’as fait ton sport ?</label>
+                        <label className="text-3xl">
+                            T’as fait ton sport ?
+                        </label>
                         <div className="flex gap-4">
                             <label>
-                                <input 
+                                <input
                                     type="radio"
                                     name="sport"
                                     value="true"
@@ -196,7 +197,9 @@ export default function SaisieDuJour() {
                 <div className="flex flex-col md:flex-row justify-between gap-8 items-end">
                     {/* Cannabis */}
                     <div className="flex flex-col space-y-2">
-                        <label className="text-3xl">Est-ce que t’as fumé ?</label>
+                        <label className="text-3xl">
+                            Est-ce que t’as fumé ?
+                        </label>
                         <div className="flex gap-4">
                             <label>
                                 <input
