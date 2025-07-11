@@ -55,10 +55,10 @@ export default function Calendrier() {
     };
 
     return (
-        <div className="min-h-screen bg-[#1D1D1D] text-white p-10 flex flex-col items-center">
-            <h2 className="text-5xl mb-8">Calendrier</h2>
+        <div className="min-h-screen bg-[#1D1D1D] text-white px-3 sm:px-6 md:px-10 py-6 sm:py-10 flex flex-col items-center">
+            <h2 className="text-3xl sm:text-5xl mb-4 sm:mb-8">Calendrier</h2>
 
-            <div className="w-full max-w-9xl bg-[#262626] p-12 rounded-2xl shadow-md animate-fade-in">
+            <div className="w-full max-w-full sm:max-w-2xl md:max-w-4xl bg-[#262626] p-3 sm:p-8 md:p-12 rounded-2xl shadow-md animate-fade-in">
                 <Calendar
                     onChange={setDate}
                     value={date}
@@ -68,7 +68,7 @@ export default function Calendrier() {
                 />
             </div>
 
-            <div className="flex flex-wrap justify-center gap-10 mt-10 text-3xl">
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-10 mt-6 sm:mt-10 text-lg sm:text-2xl md:text-3xl">
                 <div className="flex items-center gap-2">
                     <span>🏋️</span> <span>Sport fait</span>
                 </div>
