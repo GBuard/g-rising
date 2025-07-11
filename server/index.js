@@ -30,6 +30,8 @@ mongoose
         app.use("/api/entry", entryRoutes);
         app.use("/api/todo", todoRoutes);
         app.listen(PORT, () => {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            fetch(`${apiUrl}/api/entry/all`);
             console.log(`Serveur lancé sur http://localhost:${PORT}`);
         });
     })

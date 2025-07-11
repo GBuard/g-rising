@@ -15,14 +15,16 @@ export default function Statistiques() {
 
     useEffect(() => {
         const fetchStats = async () => {
-            const res = await fetch("http://localhost:5000/api/entry/stats");
-            const data = await res.json();
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const response = await fetch(`${apiUrl}/api/entry/stats`);
+            const data = await response.json();
             setStats(data);
         };
 
         const fetchWeights = async () => {
-            const res = await fetch("http://localhost:5000/api/entry/weights");
-            const data = await res.json();
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const response = await fetch(`${apiUrl}/api/entry/weights`);
+            const data = await response.json();
             setWeights(data.poids || []);
         };
 

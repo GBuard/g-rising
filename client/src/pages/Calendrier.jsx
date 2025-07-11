@@ -10,7 +10,8 @@ export default function Calendrier() {
     useEffect(() => {
         const fetchEntries = async () => {
             try {
-                const res = await fetch("http://localhost:5000/api/entry/all");
+                const apiUrl = process.env.REACT_APP_API_URL;
+                const res = await fetch(`${apiUrl}/api/entry/all`);
                 const data = await res.json();
                 setEntries(data.entries || []);
             } catch (err) {

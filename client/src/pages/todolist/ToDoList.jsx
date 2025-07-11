@@ -7,7 +7,8 @@ export default function ToDoList() {
 
     // Récupérer les todos
     useEffect(() => {
-        fetch("http://localhost:5000/api/todo")
+        const apiUrl = process.env.REACT_APP_API_URL;
+        fetch(`${apiUrl}/api/todo`)
             .then((res) => res.json())
             .then(setTodos);
     }, []);
@@ -15,7 +16,8 @@ export default function ToDoList() {
     const addTodo = async () => {
         if (!text.trim()) return;
 
-        const res = await fetch("http://localhost:5000/api/todo", {
+        const apiUrl = process.env.REACT_APP_API_URL;
+        const res = await fetch(`${apiUrl}/api/todo`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text, link }),
@@ -28,7 +30,8 @@ export default function ToDoList() {
     };
 
     const toggleDone = async (id) => {
-        const res = await fetch(`http://localhost:5000/api/todo/${id}`, {
+        const apiUrl = process.env.REACT_APP_API_URL;
+        const res = await fetch(`${apiUrl}/api/todo/${id}`, {
             method: "PATCH",
         });
         const updated = await res.json();
@@ -36,7 +39,8 @@ export default function ToDoList() {
     };
 
     const deleteTodo = async (id) => {
-        await fetch(`http://localhost:5000/api/todo/${id}`, {
+        const apiUrl = process.env.REACT_APP_API_URL;
+        await fetch(`${apiUrl}/api/todo/${id}`, {
             method: "DELETE",
         });
         setTodos(todos.filter((t) => t._id !== id));
