@@ -195,7 +195,7 @@ export default function SaisieDuJour() {
                         </div>
                     </div>
                     {/* LIGNE 2 */}
-                    <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8 items-end">
+                    <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-8">
                         {/* Cannabis */}
                         <div className="flex flex-col space-y-2 flex-1">
                             <label className="text-xl sm:text-2xl md:text-3xl">
